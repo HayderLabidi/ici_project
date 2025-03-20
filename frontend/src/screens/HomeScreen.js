@@ -13,7 +13,6 @@ useEffect(() => {
   dispatch(listProducts())
   },[dispatch])
 
-
   return (
     <div>
       { loading ? (
