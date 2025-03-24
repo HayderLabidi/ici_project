@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {useParams, Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import Rating from '../components/Rating';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox';
