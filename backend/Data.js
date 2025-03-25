@@ -1,7 +1,7 @@
 const data = {
     products: [
       {
-        _id: 1,
+        _id: '1',
         name: 'Nike Slim Shirt',
         category: 'Sport',
         image: '/image/img.jpeg'   
@@ -13,7 +13,7 @@ const data = {
         CountInStock: "10",
       },
       {
-        _id: 2,
+        _id: '2',
         name: 'Adidas Shoes',
         category: 'Sport',
         image: '/image/adidas.avif',
@@ -25,7 +25,7 @@ const data = {
         CountInStock: "5",
       },
       {
-        _id: 3,
+        _id: '3',
         name: 'Apple Watch Series 8',
         category: 'Electronics',
         image: '/image/apple.jpg',
@@ -37,7 +37,7 @@ const data = {
         CountInStock: "13",
       },
       {
-        _id: 4,
+        _id: '4',
         name: 'Sony Noise-Cancelling Headphones',
         category: 'Electronics',
         image: '/image/headphones.jpg',
@@ -49,7 +49,7 @@ const data = {
         CountInStock: "7",
       },
       {
-        _id: 5,
+        _id: '5',
         name: 'Levi’s Jeans',
         category: 'Fashion',
         image: '/image/levis.jpg',
@@ -61,7 +61,7 @@ const data = {
         CountInStock: "0",
       },
       {
-        _id: 6,
+        _id: '6',
         name: 'Pull & Bear',
         category: 'Fashion',
         image: '/image/pull&bear.jpeg',
