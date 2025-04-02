@@ -59,7 +59,7 @@ const addToCartHandler = () =>{
                   <div>Status</div>
                   <div>
                  {/* TERNAIRE === if else */}
-                    {product.CountInStock > 0 ? (
+                    {product.countInStock > 0 ? (
                       <span className='success'>In Stock available</span>
                     ):(
                       <span className='danger'>Unvailable</span>
@@ -68,7 +68,7 @@ const addToCartHandler = () =>{
                   </div>
                 </div>
               </li>
-              {product.CountInStock > 0 && (
+              {product.countInStock > 0 && (
                      <>
                        <li>
                          <div className="row">
@@ -78,7 +78,7 @@ const addToCartHandler = () =>{
                                value={qty}
                                onChange={(e) => setQty(e.target.value)}
                              >
-                               {[...Array(parseInt(product.CountInStock)).keys()].map(
+                               {[...Array(product.countInStock).keys()].map(
                                  (x) => (
                                    <option key={x + 1} value={x + 1}>
                                      {x + 1}
