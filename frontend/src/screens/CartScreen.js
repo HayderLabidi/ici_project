@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen() {
+    const navigate = useNavigate();
     const params = useParams();
     const productId = params.id;
     const { search } = useLocation();
     const qtyInUrl = new URLSearchParams(search).get('qty');
     const qty = qtyInUrl ? Number(qtyInUrl) : 1;
-
-    // Added useSelector to get cart state from Redux store
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
 
@@ -23,7 +22,7 @@ export default function CartScreen() {
         }
     }, [dispatch, productId, qty]);
 
-    const navigate = useNavigate();
+
 
     const removeFromCartHandler = (id) => {
         dispatch(removeFromCart(id));
