@@ -1,10 +1,18 @@
 const data = {
+  users: [
+    {
+      name: 'jhon',
+      email: 'admin@example.com',
+    password: '1234',
+    isAdmin: true,
+    }
+  ],
     products: [
       {
         _id: '1',
         name: 'Nike Slim Shirt',
         category: 'Sport',
-        image: '/image/img.jpeg'   
+        image: '/image/img.jpeg'
         ,price: 120,
         brand: 'Nike',
         rating: 5,

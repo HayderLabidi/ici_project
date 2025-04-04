@@ -13,7 +13,6 @@ export default function CartScreen() {
     const qty = qtyInUrl ? Number(qtyInUrl) : 1;
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
-
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,8 +20,6 @@ export default function CartScreen() {
             dispatch(addToCart(productId, qty));
         }
     }, [dispatch, productId, qty]);
-
-
 
     const removeFromCartHandler = (id) => {
         dispatch(removeFromCart(id));
