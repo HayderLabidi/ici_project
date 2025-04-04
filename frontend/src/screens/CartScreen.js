@@ -1,38 +1,43 @@
 import React, { useEffect } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
-import { addToCart } from '../actions/cartAction';
+import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
+import { addToCart, removeFromCart } from '../actions/cartAction';
 import { useDispatch, useSelector } from 'react-redux';
 import MessageBox from '../components/MessageBox';
 
-export default function CartScreen(props) {
+export default function CartScreen() {
     const params = useParams();
     const productId = params.id;
     const { search } = useLocation();
     const qtyInUrl = new URLSearchParams(search).get('qty');
     const qty = qtyInUrl ? Number(qtyInUrl) : 1;
-    
+
     // Added useSelector to get cart state from Redux store
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
-    
+
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qty));
         }
     }, [dispatch, productId, qty]);
 
+    const navigate = useNavigate();
+
     const removeFromCartHandler = (id) => {
-        // TODO: Implement remove from cart functionality
+        dispatch(removeFromCart(id));
     }
-    
+
+    const checkoutHandler = () => {
+        navigate('/signin?redirect=shipping');
+    }
     return (
         <div className='row top'>
             <div className='col-2'>
                 <h1>Shopping Cart</h1>
-           
-                {cartItems.length === 0 ? 
+
+                {cartItems.length === 0 ?
                 <MessageBox>
                     Cart is empty <Link to='/'>Go shopping</Link>
                 </MessageBox>
@@ -48,7 +53,7 @@ export default function CartScreen(props) {
                                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                                     </div>
                                     <div>
-                                        <select 
+                                        <select
                                             value={item.qty}
                                             onChange={(e) =>
                                                 dispatch(
@@ -85,6 +90,16 @@ export default function CartScreen(props) {
                             <h2>
                                 Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} {cartItems.reduce((a, c) => a + c.qty, 0) === 1 ? 'item' : 'items'}): ${cartItems.reduce((a, c) => a + c.price * c.qty, 0).toFixed(2)}
                             </h2>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                onClick={checkoutHandler}
+                                className="primary block"
+                                disabled={cartItems.length === 0}
+                            >
+                                Proceed to Checkout
+                            </button>
                         </li>
                     </ul>
                 </div>
