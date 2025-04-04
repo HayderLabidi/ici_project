@@ -10,7 +10,6 @@ mongoose.connect('mongodb://localhost27017/formation_ici_code',{
     useCreateIndex: true,
 })
 
-
 app.get('/api/products/:id',(req,res)=>{
     const product = data.products.find((x)=> x._id === req.params.id)
     if(product){
