@@ -4,7 +4,7 @@ import data from "./data.js";
 import userRouter from "./routers/userRouter.js";
 
 const app = express();
-mongoose.connect("mongodb://localhost/nom_base_locale", {});
+mongoose.connect("mongodb://localhost/iciv2", {});
 app.get("/api/products/:id", (req, res) => {
   const product = data.products.find((x) => x._id === req.params.id);
   if (product) {
