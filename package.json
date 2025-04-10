@@ -7,11 +7,12 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "start": "nodemon --watch backend --exec node --no-warnings --experimental-modules backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "express": "^4.21.2",
+    "express-async-handler": "^1.2.0",
     "mongoose": "^8.13.2"
   },
   "devDependencies": {
