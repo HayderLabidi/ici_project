@@ -5,7 +5,7 @@ import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
 
 const app = express();
-mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/iciv2", {});
+mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:27017/iciv2")
 app.use(express.json());
 // app.get("/api/products/:id", (req, res) => {
 //   const product = data.products.find((x) => x._id === req.params.id);
