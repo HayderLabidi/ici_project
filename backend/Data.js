@@ -4,7 +4,7 @@
 //   users: [
 //     {
 //       name: 'hama',
-//       email: 'hamar@gmail.com',
+//       email: 'hama@gmail.com',
 //       password: bcrypt.hashSync('1234', 8),
 //       isAdmin: false,
 //     },
