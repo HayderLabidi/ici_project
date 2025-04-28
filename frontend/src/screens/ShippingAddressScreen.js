@@ -19,7 +19,6 @@ export default function ShippingAddressScreen() {
     const [postalCode, setPostalCode] = useState('');
     const [country, setCountry] = useState('');
     const dispatch = useDispatch();
-
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(
@@ -101,5 +100,3 @@ export default function ShippingAddressScreen() {
         </div>
     );
 }
-
-
