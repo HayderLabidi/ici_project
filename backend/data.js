@@ -6,6 +6,10 @@
 //       name: 'hama',
 //       email: 'hama@gmail.com',
 //       password: bcrypt.hashSync('1234', 8),
+//       // The number 8 in bcrypt.hashSync('1234', 8) represents the salt rounds.
+//       // It determines the complexity of the hashing process.
+//       // Higher values make the hash more secure but also slower to compute.
+//       // 8 is a common choice, balancing security and performance.
 //       isAdmin: false,
 //     },
 //   ],

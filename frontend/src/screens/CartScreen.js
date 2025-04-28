@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../actions/cartAction';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import MessageBox from '../components/MessageBox';
 
