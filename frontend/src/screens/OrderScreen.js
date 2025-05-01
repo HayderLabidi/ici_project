@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { detailsOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function OrderScreen(props) {
-  const orderId = props.match.params.id;
+  const {id } = useParams();
+  // const orderId = props.match.params.id;
   const dispatch = useDispatch();
   
   const orderDetails = useSelector(state => state.orderDetails);
   const { loading, error, order } = orderDetails;
 
   useEffect(() => {
-    dispatch(detailsOrder(orderId));
-  }, [dispatch, orderId]);
+    dispatch(detailsOrder(id));
+  }, [dispatch, id]);
 
   return  loading ? (
     <LoadingBox></LoadingBox>
@@ -36,13 +37,13 @@ export default function OrderScreen(props) {
                       {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                       ,{order.shippingAddress.country}
                     </p>
-                    {order.isDelivered ? (
+                    {/* {order.isDelivered ? (
                       <MessageBox variant="success">
                         Delivered at {order.deliveredAt}
                       </MessageBox>
                     ) : (
                       <MessageBox variant="danger">Not Delivered</MessageBox>
-                    )}
+                    )} */}
                   </div>
                 </li>
                 <li>
@@ -51,13 +52,13 @@ export default function OrderScreen(props) {
                     <p>
                       <strong>Method:</strong> {order.paymentMethod}
                     </p>
-                    {order.isPaid ? (
+                    {/* {order.isPaid ? (
                       <MessageBox variant="success">
                         Paid at {order.paidAt}
                       </MessageBox>
                     ) : (
                       <MessageBox variant="danger">Not Paid</MessageBox>
-                    )}
+                    )} */}
                   </div>
                 </li>
                 <li>
